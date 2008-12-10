@@ -57,7 +57,7 @@ class PostitComponent extends Object {
 	var $thumb = false; //flag que indica se vai criar miniatura ou não
 	
 	//uma espécia de flag que determina se está referenciando a imagem grande ou a miniatura
-	var $field = 'pic';
+	var $img = 'pic';
 	
 	/**
 	 * Este método indica ao plugin qual campo do formulário contém os dados da imagem que foi enviada. Você deve 
@@ -94,7 +94,7 @@ class PostitComponent extends Object {
 	 */
 	function tamanho($size) {
 		list($this->pic_w, $this->pic_h) = explode('x', $size);
-		$this->field = 'pic';
+		$this->img = 'pic';
 		return $this;
 	}
 	
@@ -103,9 +103,9 @@ class PostitComponent extends Object {
 	 * correspondente (imagem principal ou miniatura).
 	 */
 	function maximiza() {
-		if($this->field == "pic") {
+		if($this->img == "pic") {
 			return $this->maximiza_imagem();
-		} elseif($this->field == "thumb") {
+		} elseif($this->img == "thumb") {
 			return $this->maximiza_miniatura();
 		}
 	}
@@ -115,7 +115,7 @@ class PostitComponent extends Object {
 	 */
 	function maximiza_imagem() {
 		$this->pic_max = true;
-		$this->field = "pic";
+		$this->img = "pic";
 		return $this;
 	}
 	
@@ -124,7 +124,7 @@ class PostitComponent extends Object {
 	 */
 	function maximiza_miniatura() {
 		$this->thumb_max = true;
-		$this->field = "thumb";
+		$this->img = "thumb";
 		return $this;
 	}
 	
@@ -148,9 +148,9 @@ class PostitComponent extends Object {
 			throw new Exception("Parâmetro inválido");
 		}
 		
-		if($this->field == "pic") {
+		if($this->img == "pic") {
 			$this->pic_h = $h;
-		} elseif ($this->field == "thumb") {
+		} elseif ($this->img == "thumb") {
 			$this->thumb_h = $h;
 		}
 		return $this;
@@ -167,9 +167,9 @@ class PostitComponent extends Object {
 			throw new Exception("Parâmetro inválido");
 		}
 		
-		if($this->field == "pic") {
+		if($this->img == "pic") {
 			$this->pic_w = $w;
-		} elseif ($this->field == "thumb") {
+		} elseif ($this->img == "thumb") {
 			$this->thumb_w = $w;
 		}
 		return $this;
@@ -183,9 +183,9 @@ class PostitComponent extends Object {
 	 * @param string $folder Pasta onde a imagem será armazenada.
 	 */
 	function na_pasta($folder) {
-		if($this->field == "pic") {
+		if($this->img == "pic") {
 			return $this->imagem_na_pasta($folder);
-		} elseif ($this->field == "thumb") {
+		} elseif ($this->img == "thumb") {
 			return $this->mini_na_pasta($folder);
 		}
 	}
@@ -201,7 +201,7 @@ class PostitComponent extends Object {
 			$folder = "img/" . $folder;
 		}
 		$this->pic_folder = $folder;
-		$this->field = "pic";
+		$this->img = "pic";
 		return $this;
 	}
 	
@@ -216,7 +216,7 @@ class PostitComponent extends Object {
 			$folder = "img/" . $folder;
 		}
 		$this->thumb_folder = $folder;
-		$this->field = "thumb";
+		$this->img = "thumb";
 		return $this;
 	}
 	
@@ -235,7 +235,7 @@ class PostitComponent extends Object {
 			list($this->thumb_w, $this->thumb_h) = explode('x', $size);
 		}
 		
-		$this->field = "thumb";
+		$this->img = "thumb";
 		return $this;
 	}
 	
@@ -245,9 +245,9 @@ class PostitComponent extends Object {
 	 * @param string $name Nome que a imagem terá, depois de redimensionada
 	 */
 	function nome($name) {
-		if($this->field == "pic") {
+		if($this->img == "pic") {
 			return $this->imagem_nome($name);
-		} elseif($this->field == "thumb") {
+		} elseif($this->img == "thumb") {
 			return $this->mini_nome($name);
 		}
 	}
@@ -260,7 +260,7 @@ class PostitComponent extends Object {
 	 */
 	function imagem_nome($name) {
 		$this->pic_name = $name;
-		$this->field = "pic";
+		$this->img = "pic";
 		return $this;
 	}
 	
@@ -272,7 +272,7 @@ class PostitComponent extends Object {
 	 */
 	function mini_nome($name) {
 		$this->thumb_name = $name;
-		$this->field = "thumb";
+		$this->img = "thumb";
 		return $this;
 	}
 	
