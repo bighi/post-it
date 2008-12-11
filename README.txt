@@ -15,7 +15,7 @@ You can access this components through $this->Postit inside your controller.
 
 === USAGE ===
 
-To use this plugin, you should call $this->Postit, passing all parameters and chained methods (see below).
+To use this plugin, you should call $this->Postit, passing all parameters as chained methods (see below).
 You ALWAYS need to call upload() method last. If you do not call it, nothing will happen.
 
 Example:
