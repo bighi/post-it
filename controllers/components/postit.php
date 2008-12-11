@@ -62,8 +62,8 @@ class PostitComponent extends Object {
 		return $this;
 	}
 	
-	function picture($form_field) { return image($form_field); }
-	function imagem($form_field) { return image($form_field); }	// in portuguese
+	function picture($form_field) { return $this->image($form_field); }
+	function imagem($form_field) { return $this->image($form_field); }	// in portuguese
 	
 	// this method defines main picture size. It expects Width and Height, separated by an 'x' like ('200x300')
 	// if any of the dimensions passed is 0, that size will not change. Example: ('0x150') will not change width.
@@ -74,7 +74,7 @@ class PostitComponent extends Object {
 		return $this;
 	}
 	
-	function tamanho($size) { return size($size); }
+	function tamanho($size) { return $this->size($size); }
 	
 	// image maximization: if width or height is smaller than required size, it will not get bigger by default.
 	// is maximization is activated, width and height will always expand to fill required size
@@ -88,8 +88,8 @@ class PostitComponent extends Object {
 		}
 	}
 	
-	function max() { return maximize(); }
-	function maximiza() { return maximize(); }			// in portuguese
+	function max() { return $this->maximize(); }
+	function maximiza() { return $this->maximize(); }			// in portuguese
 	
 	// Activates only the main picture maximization. It is preferable to call mazimize() instead
 	// this method is automatically called by mazimize()
@@ -99,10 +99,10 @@ class PostitComponent extends Object {
 		return $this;
 	}
 	
-	function max_picture() { return maximize(); }
-	function max_pic() { return maximize(); }
-	function maximiza_imagem() { return maximize(); } 	// in portuguese
-	function max_imagem() { return maximize(); }			// in portuguese
+	function max_picture() { return $this->maximize(); }
+	function max_pic() { return $this->maximize(); }
+	function maximiza_imagem() { return $this->maximize(); } 	// in portuguese
+	function max_imagem() { return $this->maximize(); }			// in portuguese
 	
 	// activate only thumbnail maximization. It is preferable to call mazimize() instead
 	// this method is automatically called by mazimize()
@@ -112,9 +112,9 @@ class PostitComponent extends Object {
 		return $this;
 	}
 	
-	function max_thumb() { return maximize_thumbnail(); }
-	function max_thumbnail() { return maximize_thumbnail(); }
-	function maximiza_miniatura() { return maximize_thumbnail(); } // in portuguese
+	function max_thumb() { return $this->maximize_thumbnail(); }
+	function max_thumbnail() { return $this->maximize_thumbnail(); }
+	function maximiza_miniatura() { return $this->maximize_thumbnail(); } // in portuguese
 	
 	// activate maximization of main picture AND thumbnail
 	function maximize_both() {
@@ -123,9 +123,9 @@ class PostitComponent extends Object {
 		return $this;
 	}
 	
-	function max_both() { return mazimize_both(); }
-	function maximiza_ambas() { return mazimize_both(); }		// in portuguese
-	function max_ambas() { return mazimize_both(); }			// in portuguese
+	function max_both() { return $this->mazimize_both(); }
+	function maximiza_ambas() { return $this->mazimize_both(); }		// in portuguese
+	function max_ambas() { return $this->mazimize_both(); }			// in portuguese
 	
 	// This method defines image height. It can affect main picture or thumbnail.
 	function height($h) {
@@ -142,8 +142,8 @@ class PostitComponent extends Object {
 		return $this;
 	}
 	
-	function h($h) { return height($h); }
-	function altura($h) { return height($h); }		// in portuguese
+	function h($h) { return $this->height($h); }
+	function altura($h) { return $this->height($h); }		// in portuguese
 	
 	// This method defines image width. It can affect main picture or thumbnail.
 	function width($w) {
@@ -160,8 +160,8 @@ class PostitComponent extends Object {
 		return $this;
 	}
 	
-	function w($w) { return width($w); }
-	function largura($w) { return width($w); } 		// in portuguese
+	function w($w) { return $this->width($w); }
+	function largura($w) { return $this->width($w); } 		// in portuguese
 	
 	// Defines the folder where image will be saved. This can affect main picture or thumbnail.
 	// it is not necessary to add 'img/' at the begining
@@ -174,38 +174,38 @@ class PostitComponent extends Object {
 		}
 	}
 	
-	function folder($folder) { return to_folder($folder); }
-	function dir($folder) { return to_folder($folder); }
-	function save_to($folder) { return to_folder($folder); }
-	function na_pasta($folder) { return to_folder($folder); }	// in portuguese
+	function folder($folder) { return $this->to_folder($folder); }
+	function dir($folder) { return $this->to_folder($folder); }
+	function save_to($folder) { return $this->to_folder($folder); }
+	function na_pasta($folder) { return $this->to_folder($folder); }	// in portuguese
 	
 	// defines the folder where main picture will be saved. It is more elegant to call to_folder instead.
 	function picture_to_folder($folder) {
 		// if there's no 'img/' at the begining, add it
-		$folder = add_img($folder);
+		$folder = $this->add_img($folder);
 		
 		$this->pic_folder = $folder;
 		$this->img = "pic";
 		return $this;
 	}
 	
-	function pic_folder($folder) { return picture_to_folder($folder); }
-	function pic_dir($folder) { return picture_to_folder($folder); }
-	function imagem_na_pasta($folder) { return picture_to_folder($folder); }	// in portuguese
+	function pic_folder($folder) { return $this->picture_to_folder($folder); }
+	function pic_dir($folder) { return $this->picture_to_folder($folder); }
+	function imagem_na_pasta($folder) { return $this->picture_to_folder($folder); }	// in portuguese
 	
 	// defines the folder where thumbnail will be saved. It is more elegant to call to_folder instead.
 	function thumbnail_to_folder($folder) {
 		// if there's no 'img/' at the begining, add it
-		$folder = add_img($folder);
+		$folder = $this->add_img($folder);
 		
 		$this->thumb_folder = $folder;
 		$this->img = "thumb";
 		return $this;
 	}
 	
-	function thumb_folder($folder) { return thumbnail_to_folder($folder); }	
-	function thumb_dir($folder) { return thumbnail_to_folder($folder); }	
-	function miniatura_na_pasta($folder) { return thumbnail_to_folder($folder); }	// in portuguese
+	function thumb_folder($folder) { return $this->thumbnail_to_folder($folder); }	
+	function thumb_dir($folder) { return $this->thumbnail_to_folder($folder); }	
+	function miniatura_na_pasta($folder) { return $this->thumbnail_to_folder($folder); }	// in portuguese
 	
 	// This methods let the plugin know that a thumbnail should be generated. Is the parameter is passed, 
 	// it also defines thumbnail width and height.
@@ -222,12 +222,12 @@ class PostitComponent extends Object {
 		return $this;
 	}
 	
-	function thumb($size = null) { return with_thumbnail($size); }
-	function with_thumb($size = null) { return with_thumbnail($size); }
-	function copy($size = null) { return with_thumbnail($size); } 		
-	function com_miniatura($size = null) { return with_thumbnail($size); } 	//in portuguese
-	function miniatura($size = null) { return with_thumbnail($size); } 		//in portuguese
-	function copia($size = null) { return with_thumbnail($size); } 		//in portuguese
+	function thumb($size = null) { return $this->with_thumbnail($size); }
+	function with_thumb($size = null) { return $this->with_thumbnail($size); }
+	function copy($size = null) { return $this->with_thumbnail($size); } 		
+	function com_miniatura($size = null) { return $this->with_thumbnail($size); } 	//in portuguese
+	function miniatura($size = null) { return $this->with_thumbnail($size); } 		//in portuguese
+	function copia($size = null) { return $this->with_thumbnail($size); } 		//in portuguese
 	
 	// This set the name that the image will get when moved to fhe final directory
 	// This method can affect picture or thumbnail
@@ -239,7 +239,7 @@ class PostitComponent extends Object {
 		}
 	}
 	
-	function nome($name) { return name($name); }	// in portuguese
+	function nome($name) { return $this->name($name); }	// in portuguese
 	
 	// this method defines main picture name. It is more elegant to call name() instead.
 	function picture_name($name) {
@@ -248,8 +248,8 @@ class PostitComponent extends Object {
 		return $this;
 	}
 	
-	function pic_name($name) { return picture_name($name); }
-	function imagem_nome($name) { return picture_name($name); } // in portuguese
+	function pic_name($name) { return $this->picture_name($name); }
+	function imagem_nome($name) { return $this->picture_name($name); } // in portuguese
 	
 	// this method defines thumbnail name. It is more elegant to call name() instead.
 	function thumbnail_name($name) {
@@ -258,8 +258,8 @@ class PostitComponent extends Object {
 		return $this;
 	}
 	
-	function thumb_name($name) { return thumbnail_name($name); }
-	function miniatura_nome($name) { return thumbnail_name($name); } // in portuguese
+	function thumb_name($name) { return $this->thumbnail_name($name); }
+	function miniatura_nome($name) { return $this->thumbnail_name($name); } // in portuguese
 	
 	//TODO remover essa função depois que terminar de desenvolver
 	function miolos() {
@@ -334,9 +334,9 @@ class PostitComponent extends Object {
 		return $this->pic_name;
 	} // end of upload()
 		
-	function send() { return upload(); }
-	function up() { return upload(); }
-	function envia() { return upload(); } // in portuguese
+	function send() { return $this->upload(); }
+	function up() { return $this->upload(); }
+	function envia() { return $this->upload(); } // in portuguese
 	
 	// This is the second most important method of the plugin. It handles image resizing and moving
 	// It is automatically called by upload() method
