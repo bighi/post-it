@@ -21,7 +21,7 @@ You ALWAYS need to call upload() method last. If you do not call it, nothing wil
 Example:
 $this->Postit->image("avatar")->size("160x320")->save_to("avatars")->upload();
 
-All parameters are called after $this->Postit, and separated by this arrow ->
+All parameters are called after $this->Postit, and separated by the arrow ->
 
 The only parameters not optional are IMAGE() and UPLOAD().
 
