@@ -121,5 +121,6 @@ class PostitTestCase extends CakeTestCase {
 	// TODO: Pesquisar melhor forma de testar o upload, redimensionamento e movimentação de imagens 
 	// pelo disco. Como fazer este tipo de teste de forma auto-suficiente?
 	// Como garantir que o teste de upload de imagem vai funcionar em qualquer computador que ele for colocado?
+	// TODO lembrar de adicionar os testes não-idiotas
 }
 ?>
