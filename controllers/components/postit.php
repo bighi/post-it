@@ -62,7 +62,8 @@ class PostitComponent extends Object {
 		return $this;
 	}
 	
-	function imagem($form_field) { return image($form_field); }
+	function picture($form_field) { return image($form_field); }
+	function imagem($form_field) { return image($form_field); }	// in portuguese
 	
 	// this method defines main picture size. It expects Width and Height, separated by an 'x' like ('200x300')
 	// if any of the dimensions passed is 0, that size will not change. Example: ('0x150') will not change width.
@@ -99,6 +100,7 @@ class PostitComponent extends Object {
 	}
 	
 	function max_picture() { return maximize(); }
+	function max_pic() { return maximize(); }
 	function maximiza_imagem() { return maximize(); } 	// in portuguese
 	function max_imagem() { return maximize(); }			// in portuguese
 	
@@ -111,6 +113,7 @@ class PostitComponent extends Object {
 	}
 	
 	function max_thumb() { return maximize_thumbnail(); }
+	function max_thumbnail() { return maximize_thumbnail(); }
 	function maximiza_miniatura() { return maximize_thumbnail(); } // in portuguese
 	
 	// activate maximization of main picture AND thumbnail
@@ -173,6 +176,7 @@ class PostitComponent extends Object {
 	
 	function folder($folder) { return to_folder($folder); }
 	function dir($folder) { return to_folder($folder); }
+	function save_to($folder) { return to_folder($folder); }
 	function na_pasta($folder) { return to_folder($folder); }	// in portuguese
 	
 	// defines the folder where main picture will be saved. It is more elegant to call to_folder instead.
@@ -220,8 +224,10 @@ class PostitComponent extends Object {
 	
 	function thumb($size = null) { return with_thumbnail($size); }
 	function with_thumb($size = null) { return with_thumbnail($size); }
+	function copy($size = null) { return with_thumbnail($size); } 		
 	function com_miniatura($size = null) { return with_thumbnail($size); } 	//in portuguese
 	function miniatura($size = null) { return with_thumbnail($size); } 		//in portuguese
+	function copia($size = null) { return with_thumbnail($size); } 		//in portuguese
 	
 	// This set the name that the image will get when moved to fhe final directory
 	// This method can affect picture or thumbnail

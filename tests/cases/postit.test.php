@@ -26,51 +26,51 @@ class PostitTestCase extends CakeTestCase {
 	function test_basic_param_methods() {
 		
 		// testa o método que determina o campo do formulário
-		$this->postit->imagem("imagem1");
+		$this->postit->image("imagem1");
 		$this->assertEqual($this->postit->pic_field, "imagem1");
 		
 		// testa método que determina tamanho da imagem
-		$this->postit->tamanho("100x200");
+		$this->postit->size("100x200");
 		$this->assertEqual($this->postit->pic_w, 100);
 		$this->assertEqual($this->postit->pic_h, 200);
 		
 		// testa método que determina largura da imagem (usando string)
-		$this->postit->largura("50");
+		$this->postit->width("50");
 		$this->assertEqual($this->postit->pic_w, 50);
 		
 		// testa método que determina largura da imagem (usando int)
-		$this->postit->largura(60);
+		$this->postit->width(60);
 		$this->assertEqual($this->postit->pic_w, 60);
 		
 		// testa método que determina altura da imagem (usando string)
-		$this->postit->altura("70");
+		$this->postit->height("70");
 		$this->assertEqual($this->postit->pic_h, 70);
 		
 		// testa método que determina altura da imagem (usando int)
-		$this->postit->altura(80);
+		$this->postit->height(80);
 		$this->assertEqual($this->postit->pic_h, 80);
 		
 		// testa método que determina a pasta da imagem
-		$this->postit->na_pasta("pasta");
+		$this->postit->to_folder("pasta");
 		$this->assertEqual($this->postit->pic_folder, "img/pasta");
 		
 		// testa método que determina a pasta da imagem (com img/ sendo informado)
-		$this->postit->na_pasta("img/pasta");
+		$this->postit->to_folder("img/pasta");
 		$this->assertEqual($this->postit->pic_folder, "img/pasta");
 		
 		// testa método que determina nome da imagem
-		$this->postit->nome("imagem01");
+		$this->postit->name("imagem01");
 		$this->assertEqual($this->postit->pic_name, "imagem01");
 		
 		// testa método que determina se a imagem é maximizada
-		$this->postit->maximiza();
+		$this->postit->maximize();
 		$this->assertTrue($this->postit->pic_max);
 		
 		// zera maximização
 		$this->postit->pic_max = false;
 		
 		// testa método que maximiza imagem principal E miniatura
-		$this->postit->maximiza_ambas();
+		$this->postit->maximize_both();
 		$this->assertTrue($this->postit->pic_max);
 		$this->assertTrue($this->postit->thumb_max);
 		
@@ -79,7 +79,7 @@ class PostitTestCase extends CakeTestCase {
 		$this->postit->thumb_max = false;
 		
 		// testa método que informa a criação de miniatura
-		$this->postit->com_miniatura("10x20");
+		$this->postit->with_thumbnail("10x20");
 		$this->assertEqual($this->postit->thumb_w, 10);
 		$this->assertEqual($this->postit->thumb_h, 20);
 		$this->assertTrue($this->postit->thumb);
@@ -91,30 +91,30 @@ class PostitTestCase extends CakeTestCase {
 		$this->postit->thumb_h = 0;
 		
 		// testa método que informa criação de miniatura (sem passar tamanho)
-		$this->postit->com_miniatura();
+		$this->postit->with_thumbnail();
 		$this->assertTrue($this->postit->thumb);
 		
 		// AGORA QUE CHAMOU O MÉTODO COM_MINIATURA(), OS MÉTODOS INTELIGENTES DEVERÃO MUDAR AS INFORMAÇÕES 
 		// DA MINIATURA APENAS, E NÃO DA IMAGEM PRINCIPAL
 		
 		// testa método que muda largura da imagem. Desta vez, deverá mudar da miniatura
-		$this->postit->largura("31");
+		$this->postit->width("31");
 		$this->assertEqual($this->postit->thumb_w, 31);
 		
 		// testa método que muda altura da imagem. Desta vez, deverá mudar da miniatura
-		$this->postit->altura("41");
+		$this->postit->height("41");
 		$this->assertEqual($this->postit->thumb_h, 41);
 		
 		// testa método que muda nome da miniatura
-		$this->postit->nome("mini");
+		$this->postit->name("mini");
 		$this->assertEqual($this->postit->thumb_name, "mini");
 		
 		// testa método que muda pasta da miniatura
-		$this->postit->na_pasta("minis");
+		$this->postit->to_folder("minis");
 		$this->assertEqual($this->postit->thumb_folder, "img/minis");
 		
 		// testa método que determina se a miniatura é maximizada
-		$this->postit->maximiza();
+		$this->postit->maximize();
 		$this->assertTrue($this->postit->thumb_max);
 	}
 	
