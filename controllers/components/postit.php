@@ -40,7 +40,7 @@ class PostitComponent extends Object {
 	// main picture data
 	var $pic_w = 0;
 	var $pic_h = 0;
-	var $pic_folder = "img/";
+	var $pic_folder = "img";
 	var $pic_name = null;
 	var $pic_max = false;
 	
@@ -206,6 +206,20 @@ class PostitComponent extends Object {
 	function thumb_folder($folder) { return $this->thumbnail_to_folder($folder); }	
 	function thumb_dir($folder) { return $this->thumbnail_to_folder($folder); }	
 	function miniatura_na_pasta($folder) { return $this->thumbnail_to_folder($folder); }	// in portuguese
+		
+	// set both main picture AND thumbnail to the designed folder
+	function both_to_folder($folder) {
+		$folder = $this->add_img($folder);
+		
+		$this->pic_folder = $folder;
+		$this->thumb_folder = $folder;
+		
+		return $this;
+	}
+	
+	function save_both_to($folder) { return $this->both_to_folder($folder); }
+	function both_dir($folder) { return $this->both_to_folder($folder); }
+	function ambas_na_pasta($folder) { return $this->both_to_folder($folder); } // in portuguese
 	
 	// This methods let the plugin know that a thumbnail should be generated. Is the parameter is passed, 
 	// it also defines thumbnail width and height.
