@@ -378,7 +378,7 @@ class PostitComponent extends Object {
 		
 		// if $w or $h equals 0, original size is not changed
 		if ($w == 0) $final_w = $true_width;
-		if ($h == 0) $final_h == $true_height;
+		if ($h == 0) $final_h = $true_height;
 		
 		// if $w is bigger than 0, then there's a size limit
 		if ($w > 0) {
@@ -403,14 +403,14 @@ class PostitComponent extends Object {
 			// if original height is bigger than desired height, than resize it
 			if ($true_height >= $h) $final_h = $h;
 			
-			// is original height is smaller then desired height, then it may be resized or not
+			// if original height is smaller then desired height, then it may be resized or not
 			if ($true_height < $h) {
 				if($this->pic_max === true) $final_h = $h; 	// maximization is on, resize
 				else $final_h = $true_height;						// maximization is off, don't resize
 			}
 			
-			// se $w is -1, it is automatically resized to mantain scale
-			if($w == -1) {
+			// if $h is -1, it is automatically resized to mantain scale
+			if($h == -1) {
 				$ratio = $true_height / $final_h;
 				$final_w = $true_width / $ratio;
 			}
