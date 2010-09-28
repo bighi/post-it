@@ -392,7 +392,7 @@ class PostitComponent extends Object {
 			}
 			
 			// se $h is -1, it is automatically resized to mantain scale
-			if($w == -1) {
+			if($h == -1) {
 				$ratio = $true_width / $final_w;
 				$final_h = $true_height / $ratio;
 			}	
@@ -409,8 +409,8 @@ class PostitComponent extends Object {
 				else $final_h = $true_height;						// maximization is off, don't resize
 			}
 			
-			// if $h is -1, it is automatically resized to mantain scale
-			if($h == -1) {
+			// if $w is -1, it is automatically resized to mantain scale
+			if($w == -1) {
 				$ratio = $true_height / $final_h;
 				$final_w = $true_width / $ratio;
 			}
